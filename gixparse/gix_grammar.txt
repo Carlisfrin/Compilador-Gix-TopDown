@@ -1,0 +1,39 @@
+LIT =  lit_int 			
+		| lit_float
+VAR = nombre
+EXPR = 	EXPR '+' EXPR
+		| EXPR '-' EXPR
+		| EXPR '*' EXPR
+		| EXPR '/' EXPR
+		| VAR
+		| LIT
+TIPO = 'int' 		
+		| 'float'
+MACROS = MACROS MACRO
+		| MACRO
+MACRO = 'macro' VAR '(' PARAMS ')' '{' DECLS SENTS '}'
+DECLS = DECLS DECL
+		| e
+DECL = PARAM ';'
+PARAM = TIPO VAR
+		| e				
+NEXT_PARAM = ',' PARAM	
+			| e
+PARAMS = PARAMS PARAM NEXT_PARAM 	
+		| e
+SENTS = SENTS SENT 			
+		| e
+SENT = LOOP 			
+		| VAR STMT
+		| ';'				
+LOOP = 'loop' VAR ':' EXPR ',' EXPR '{' SENTS '}' 
+STMT = FUNC		
+		| ASIG	
+IN_FUN = ',' EXPR
+		| e
+FIRST_IN = EXPR
+			| e
+IN_FUNS = IN_FUNS FIRST_IN IN_FUN	
+		| e
+FUNC = '(' IN_FUNS ')' ';'
+ASIG = '=' EXPR ';'	

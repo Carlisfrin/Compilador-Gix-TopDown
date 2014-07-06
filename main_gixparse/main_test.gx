@@ -1,0 +1,16 @@
+#Test para main_gixparse
+macro main(){
+	loop i:0, 3{
+		rect(i, i, 0.4, 0xff);
+	}
+	loop j:0, 8{
+		rect(j, j, 0.4, 0xff);
+	}
+	circle(4, 5, 2, 0x11f000011);
+}
+
+macro line(int x, int y) {
+	loop i:0,x{
+		circle(2, y, 5, 4);
+	}
+}
